@@ -6,6 +6,15 @@
             "id": "d24896a0-2160-4d91-ae98-59abbe50f26a",
             "actions": [
                 {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "f7cdcaa1-8711-4b9f-849a-0162a8e82e60",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Space",
                     "type": "Button",
                     "id": "dfa37bd5-7fe9-4db3-afae-99311ce532ee",
@@ -13,15 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Movement",
-                    "type": "Value",
-                    "id": "f7cdcaa1-8711-4b9f-849a-0162a8e82e60",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -59,9 +59,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "3D Vector",
-                    "id": "c8cae8c0-d760-4372-b9c5-3b73bebb1c5e",
-                    "path": "3DVector",
+                    "name": "2D Vector",
+                    "id": "2b025da8-4d8c-4787-bd02-93d321ea85b0",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -71,8 +71,8 @@
                 },
                 {
                     "name": "up",
-                    "id": "fbd2fc3d-a812-4174-b3f4-85d4bed39e75",
-                    "path": "",
+                    "id": "a4f3f043-45d1-404e-bca7-3a340440a5b7",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -82,8 +82,8 @@
                 },
                 {
                     "name": "down",
-                    "id": "15bb55b3-03b3-4725-9a62-51ea396da672",
-                    "path": "",
+                    "id": "52e50e00-190e-4f7c-bb28-f6e40e3c8588",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -93,7 +93,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "28dcfb81-764b-41e5-a95c-4ba19388c5b6",
+                    "id": "7d793cc1-403c-4d03-b8ff-ee22ab20dc71",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
@@ -104,30 +104,8 @@
                 },
                 {
                     "name": "right",
-                    "id": "d28b01b9-fcdc-435d-b57d-0ff65eed0e84",
+                    "id": "97eb7c57-e5ab-4d28-97c0-3a674d61a254",
                     "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "forward",
-                    "id": "b4ba303d-d681-40a2-951e-d93ac0ea09f4",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "backward",
-                    "id": "a14ae0d5-2659-4aab-8d61-a3b0f8bd7914",
-                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
