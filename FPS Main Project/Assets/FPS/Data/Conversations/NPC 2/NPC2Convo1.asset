@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62497ae019aeb54ea142246016bac65, type: 3}
+  m_Name: NPC2Convo1
+  m_EditorClassIdentifier: 
+  ID: 
+  Lines:
+  - {fileID: 11400000, guid: 7c431b4f05ce0bb47a204a77d3dc61d6, type: 2}
+  - {fileID: 11400000, guid: 2027445880cec8c44b4907cb9bd15f8b, type: 2}
+  - {fileID: 11400000, guid: f7704ad057bcb0f4cb24b0397f549a96, type: 2}
+  ObjectiveAssignments:
+  - {fileID: 598277302063295018, guid: 4e6d5e2f16e5c5543bddfa83f0bd077a, type: 3}

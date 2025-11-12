@@ -16,6 +16,9 @@ namespace Unity.FPS.Game
         public static AmmoPickupEvent AmmoPickupEvent = new AmmoPickupEvent();
         public static DamageEvent DamageEvent = new DamageEvent();
         public static DisplayMessageEvent DisplayMessageEvent = new DisplayMessageEvent();
+
+        /* Freya's Additions */
+        public static StartConversationEvent StartConversationEvent = new StartConversationEvent();
     }
 
     public class ObjectiveUpdateEvent : GameEvent
@@ -62,5 +65,11 @@ namespace Unity.FPS.Game
     {
         public string Message;
         public float DelayBeforeDisplay;
+    }
+
+    /* Freya's Additions */
+    public class StartConversationEvent : GameEvent
+    {
+        public Conversation conversation;
     }
 }

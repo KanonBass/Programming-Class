@@ -33,6 +33,8 @@ namespace Unity.FPS.UI
         Health m_PlayerHealth;
         FramerateCounter m_FramerateCounter;
 
+        DialogueManager m_DialogueManager;
+
         void Start()
         {
             m_PlayerInputsHandler = FindFirstObjectByType<PlayerInputHandler>();
@@ -44,6 +46,8 @@ namespace Unity.FPS.UI
 
             m_FramerateCounter = FindFirstObjectByType<FramerateCounter>();
             DebugUtility.HandleErrorIfNullFindObject<FramerateCounter, InGameMenuManager>(m_FramerateCounter, this);
+
+            m_DialogueManager = FindFirstObjectByType<DialogueManager>();
 
             MenuRoot.SetActive(false);
 
@@ -63,7 +67,11 @@ namespace Unity.FPS.UI
         void Update()
         {
             // Lock cursor when clicking outside of menu
-            if (!MenuRoot.activeSelf && Input.GetMouseButtonDown(0))
+            /* Freya's Additions 
+             * I added extra conditions to the relocking of the cursor for the dialogue manager and quest log 
+             * Without these extra conditions you can look and shoot while in the menus
+             */
+            if (!MenuRoot.activeSelf && !m_DialogueManager.GetInDialogue() && Input.GetMouseButtonDown(0))
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;

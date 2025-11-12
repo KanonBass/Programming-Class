@@ -25,5 +25,9 @@
         public const string k_ButtonNameSubmit = "Submit";
         public const string k_ButtonNameCancel = "Cancel";
         public const string k_ButtonReload = "Reload";
+
+        /* Freya's Additions */
+        public const string k_ButtonNameInteraction = "Interact";
+        public const string k_ButtonNameLogMenu = "Log Menu";
     }
 }
