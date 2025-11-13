@@ -34,6 +34,7 @@ namespace Unity.FPS.UI
         FramerateCounter m_FramerateCounter;
 
         DialogueManager m_DialogueManager;
+        LogManager m_LogManager;
 
         void Start()
         {
@@ -48,6 +49,7 @@ namespace Unity.FPS.UI
             DebugUtility.HandleErrorIfNullFindObject<FramerateCounter, InGameMenuManager>(m_FramerateCounter, this);
 
             m_DialogueManager = FindFirstObjectByType<DialogueManager>();
+            m_LogManager = FindAnyObjectByType<LogManager>();
 
             MenuRoot.SetActive(false);
 
@@ -71,7 +73,7 @@ namespace Unity.FPS.UI
              * I added extra conditions to the relocking of the cursor for the dialogue manager and quest log 
              * Without these extra conditions you can look and shoot while in the menus
              */
-            if (!MenuRoot.activeSelf && !m_DialogueManager.GetInDialogue() && Input.GetMouseButtonDown(0))
+            if (!MenuRoot.activeSelf && !m_DialogueManager.GetInDialogue() && !m_LogManager.gameObject.activeSelf && Input.GetMouseButtonDown(0))
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;

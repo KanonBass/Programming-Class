@@ -49,6 +49,12 @@ MonoBehaviour:
   Description: Kill one enemy for me
   IsOptional: 1
   DelayVisible: 4
+  logEntry:
+    ID: objkill
+    questName: Please Kill One Enemy
+    questGiver: NPC 2
+    description: I would really appreciate it if you killed an enemy for me.
+    completion: 0
   MustKillAllEnemies: 0
   KillsToCompleteObjective: 1
   NotificationEnemiesRemainingThreshold: 1
