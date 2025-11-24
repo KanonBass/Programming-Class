@@ -27,7 +27,10 @@ public class NPCController : Interactable
 
     public void UpdateInput()
     {
-        InteractionStarted.Invoke(this);
+        if (!MenuStateHandler.menuOpen)
+        {
+            InteractionStarted.Invoke(this);
+        }
     }
 
     public string GetID()

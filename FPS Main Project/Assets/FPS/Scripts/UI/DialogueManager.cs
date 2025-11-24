@@ -25,6 +25,8 @@ public class DialogueManager : MonoBehaviour
     private DialogueLine currentLine;
     private int currentIndex;
 
+    private bool startedThisFrame;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,13 +36,17 @@ public class DialogueManager : MonoBehaviour
         dialogueTextBox = dialogueTextObject.GetComponent<TMP_Text>();
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
-        if (inDialogue && Input.anyKeyDown)
+        if (inDialogue && Input.anyKeyDown && !startedThisFrame)
         {
             ContinueConversation();
         }
+
+        startedThisFrame = false;
     }
 
     public void StartConversation(StartConversationEvent evt)
@@ -50,6 +56,7 @@ public class DialogueManager : MonoBehaviour
         currentConversation = evt.conversation;
         currentIndex = 0;
         currentLine = currentConversation.Lines[currentIndex];
+        startedThisFrame = true;
 
         UpdateTextbox();
     }
@@ -58,6 +65,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueUI.SetActive(true);
         inDialogue = true;
+        MenuStateHandler.menuOpen = true;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -90,6 +98,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(false);
         currentIndex = 0;
         inDialogue = false;
+        MenuStateHandler.menuOpen = false;
         AssignObjectives();
 
         Cursor.lockState = CursorLockMode.Locked;

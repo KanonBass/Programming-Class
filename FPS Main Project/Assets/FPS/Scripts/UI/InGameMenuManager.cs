@@ -70,10 +70,9 @@ namespace Unity.FPS.UI
         {
             // Lock cursor when clicking outside of menu
             /* Freya's Additions 
-             * I added extra conditions to the relocking of the cursor for the dialogue manager and quest log 
-             * Without these extra conditions you can look and shoot while in the menus
+             * I added extra conditions to the relocking of the cursor and openning/closing the menu while other menus are open
              */
-            if (!MenuRoot.activeSelf && !m_DialogueManager.GetInDialogue() && !m_LogManager.gameObject.activeSelf && Input.GetMouseButtonDown(0))
+            if (!MenuStateHandler.menuOpen && Input.GetMouseButtonDown(0))
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -95,7 +94,6 @@ namespace Unity.FPS.UI
                 }
 
                 SetPauseMenuActivation(!MenuRoot.activeSelf);
-
             }
 
             if (Input.GetAxisRaw(GameConstants.k_AxisNameVertical) != 0)
@@ -115,7 +113,12 @@ namespace Unity.FPS.UI
 
         void SetPauseMenuActivation(bool active)
         {
-            MenuRoot.SetActive(active);
+            if (!MenuStateHandler.menuOpen || MenuRoot.activeSelf)
+            {
+                MenuRoot.SetActive(active);
+                MenuStateHandler.menuOpen = active;
+            }
+            
 
             if (MenuRoot.activeSelf)
             {
@@ -126,7 +129,7 @@ namespace Unity.FPS.UI
 
                 EventSystem.current.SetSelectedGameObject(null);
             }
-            else
+            else if (!MenuStateHandler.menuOpen)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;

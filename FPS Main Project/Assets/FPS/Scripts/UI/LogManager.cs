@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using TMPro;
 using Unity.FPS.Game;
+using Unity.FPS.Gameplay;
+using Unity.FPS.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,9 +71,13 @@ public class LogManager : MonoBehaviour
         newButton.GetComponent<LogButton>().LogButtonPressed += SetCurrentLog;
     }
 
-    public void SetActivation(bool isNowActive)
+    public void SetActivation(bool newState)
     {
-        logRoot.SetActive(isNowActive);
+        if (!MenuStateHandler.menuOpen || logRoot.activeSelf)
+        {
+            logRoot.SetActive(newState);
+            MenuStateHandler.menuOpen = newState;
+        }
 
         if (logRoot.activeSelf)
         {
@@ -79,7 +85,7 @@ public class LogManager : MonoBehaviour
             Cursor.visible = true;
             Time.timeScale = 0f;
         }
-        else
+        else if (!MenuStateHandler.menuOpen)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
